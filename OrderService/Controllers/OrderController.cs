@@ -1,3 +1,5 @@
+using Common;
+using Common.Messages;
 using DotNetCore.CAP;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,7 +18,9 @@ namespace KafkaCAPPlayground.Controllers
         [HttpGet("PublishMessage")]
         public async Task<IActionResult> PublishMessage()
         {
-            await publisher.PublishAsync("sample.message", new { Text = "Hello from CAP Kafka!" });
+            OrderCreatedMessage message = new OrderCreatedMessage {OrderID = 1, BillingAddress = "221B Baker Street", BuyerName = "Sherlock Holmes", ProductName = "Magnifying glass" };
+
+            await publisher.PublishAsync(TopicNames.OrderCreated, message);
             return Ok("Message published!");
         }
     }

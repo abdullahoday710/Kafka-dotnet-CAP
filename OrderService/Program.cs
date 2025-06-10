@@ -1,4 +1,5 @@
-
+using Common;
+using Common.Messages;
 using DotNetCore.CAP;
 using DotNetCore.CAP.Messages;
 using Microsoft.EntityFrameworkCore;
@@ -10,10 +11,10 @@ namespace KafkaCAPPlayground
     {
         public class SampleSubscriber : ICapSubscribe
         {
-            [CapSubscribe("sample.message")]
-            public void HandleMessage(dynamic message)
+            [CapSubscribe(TopicNames.OrderCreated)]
+            public void HandleMessage(OrderCreatedMessage message)
             {
-                Console.WriteLine($"Received: {message}");
+                Console.WriteLine($"Received: {message.OrderID}");
             }
         }
 
