@@ -34,7 +34,7 @@ Follow these steps to get the project up and running:
     * **Using the .NET CLI:**
         From the root directory, you can run the default `OrderService` microservice directly:
         ```bash
-        dotnet run
+        dotnet run --project OrderService/OrderService.csproj
         ```
 
 ---
