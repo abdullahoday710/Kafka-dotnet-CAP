@@ -1,20 +1,21 @@
-using Common;
-using Common.Messages;
-using DotNetCore.CAP;
+using BillingService.Subscribers;
 using DotNetCore.CAP.Messages;
-using Microsoft.EntityFrameworkCore;
-using System;
 
-namespace KafkaCAPPlayground
+namespace BillingService
 {
     public class Program
     {
+        public static void RegisterSubscribers(ref WebApplicationBuilder builder)
+        {
+            // Register all your kafka subscribers here
+            builder.Services.AddTransient<OrderCreateSubscriber>();
+        }
+
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("cap"));
 
-            // Configure CAP with Kafka
+            // Add services to the container.
             builder.Services.AddCap(x =>
             {
                 x.UseInMemoryStorage();
@@ -30,12 +31,11 @@ namespace KafkaCAPPlayground
                 };
             });
 
-
-
-
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            RegisterSubscribers(ref builder);
 
             var app = builder.Build();
 

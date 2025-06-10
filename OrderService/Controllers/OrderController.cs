@@ -2,6 +2,7 @@ using Common;
 using Common.Messages;
 using DotNetCore.CAP;
 using Microsoft.AspNetCore.Mvc;
+using OrderService.Request;
 
 namespace KafkaCAPPlayground.Controllers
 {
@@ -15,10 +16,14 @@ namespace KafkaCAPPlayground.Controllers
             publisher = capPublisher;
         }
 
-        [HttpGet("PublishMessage")]
-        public async Task<IActionResult> PublishMessage()
+        [HttpPost("CreateOrder")]
+        public async Task<IActionResult> CreateOrder(OrderCreateRequest orderCreateRequest)
         {
-            OrderCreatedMessage message = new OrderCreatedMessage {OrderID = 1, BillingAddress = "221B Baker Street", BuyerName = "Sherlock Holmes", ProductName = "Magnifying glass" };
+            OrderCreatedMessage message = new OrderCreatedMessage {
+                OrderID = 1,
+                BillingAddress = orderCreateRequest.BillingAddress,
+                BuyerName = orderCreateRequest.BuyerName,
+                ProductName = orderCreateRequest.ProductName };
 
             await publisher.PublishAsync(TopicNames.OrderCreated, message);
             return Ok("Message published!");

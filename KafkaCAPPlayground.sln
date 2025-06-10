@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService", "OrderServic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{D0CA6CBF-5670-45CA-A78B-6EA2653A0AE4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingService", "BillingService\BillingService.csproj", "{6E2F33D7-8338-48F6-9C9F-8E166C4ABEE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D0CA6CBF-5670-45CA-A78B-6EA2653A0AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0CA6CBF-5670-45CA-A78B-6EA2653A0AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0CA6CBF-5670-45CA-A78B-6EA2653A0AE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E2F33D7-8338-48F6-9C9F-8E166C4ABEE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E2F33D7-8338-48F6-9C9F-8E166C4ABEE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E2F33D7-8338-48F6-9C9F-8E166C4ABEE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E2F33D7-8338-48F6-9C9F-8E166C4ABEE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
