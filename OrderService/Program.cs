@@ -12,7 +12,7 @@ namespace KafkaCAPPlayground
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("cap"));
+            builder.Services.AddDbContext<OrderServiceDBContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("OrderServiceDB")));
 
             // Configure CAP with Kafka
             builder.Services.AddCap(x =>

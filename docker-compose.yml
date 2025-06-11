@@ -1,5 +1,4 @@
-﻿version: '3.7'
-services:
+﻿services:
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     environment:
@@ -19,3 +18,23 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  orderservicedb:
+    image: postgres:latest
+    container_name: orderservicedb
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: orderservice
+    ports:
+      - "5432:5432"
+
+  billingservicedb:
+    image: postgres:latest
+    container_name: billingservicedb
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: billingservice
+    ports:
+      - "5433:5432"

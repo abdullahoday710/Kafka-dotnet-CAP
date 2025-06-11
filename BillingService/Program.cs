@@ -1,5 +1,6 @@
 using BillingService.Subscribers;
 using DotNetCore.CAP.Messages;
+using Microsoft.EntityFrameworkCore;
 
 namespace BillingService
 {
@@ -14,6 +15,8 @@ namespace BillingService
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<BillingServiceDBContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("BillingServiceDB")));
+
 
             // Add services to the container.
             builder.Services.AddCap(x =>
