@@ -18,15 +18,22 @@ Follow these steps to get the project up and running:
     ```
 
 2.  **Start Docker Services:**
-   Start the necessary Kafka and Zookeeper containers:
+   Start the necessary Kafka and Zookeeper and postgres containers:
     ```bash
     docker-compose up -d
     ```
     The `-d` flag runs the containers in detached mode, so they run in the background.
 
     TIP : to see all your running detached docker instances you can use the command ```docker container ls```
-
-4.  **Run a Microservice:**
+3. **populate the databases**
+   
+   Now we need to create the tables for our database, Simply run these commands
+   
+   ```update-database -Project BillingService -StartupProject BillingService```
+   
+   ```update-database -Project OrderService -StartupProject OrderService```
+    
+5.  **Run a Microservice:**
 
     * **Using Visual Studio:**
         Open the `KafkaCAPPlayground.sln` file in Visual Studio. You can then select and run any of the individual microservices within the solution.
@@ -38,3 +45,7 @@ Follow these steps to get the project up and running:
         ```
 
 ---
+
+## Useful dev commands cheat sheet
+- Add a migration to a specific microservice : ```add-migration {Migration name} -Project {Microservice name} -StartupProject {Microservice name}```
+- Update the database for a specific microservice : ```update-database -Project {Microservice name} -StartupProject {Microservice name}```
