@@ -17,7 +17,7 @@ Follow these steps to get the project up and running:
 1.  **Clone the Repository:**
     ```bash
     git clone https://github.com/abdullahoday710/Kafka-dotnet-CAP
-    cd KafkaCAPPlayground
+    cd Kafka-dotnet-CAP
     ```
 
 2.  **Start Docker Services:**
