@@ -1,5 +1,8 @@
 This repository houses a prototype project focused on exploring **event-driven architecture** using **Apache Kafka** and its integration with ASP.NET microservices. The goal is to provide a hands-on environment for learning how to build scalable and reactive systems.
 
+## Architecture
+![Untitled-2025-06-11-1026](https://github.com/user-attachments/assets/2cba5fff-0fde-4851-afa5-24620a69f62c)
+
 ## Requirements
 
 Ensure you have the following installed:
